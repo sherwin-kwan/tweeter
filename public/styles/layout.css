@@ -28,7 +28,29 @@ strong {
   font-weight: 600;
 }
 
+/* Styles for the main body of the page where the chirps appear */
 
+main {
+  width: 90%;
+  margin: auto;
+  background-color: #f4f1ec;
+  border: 5px solid;
+}
+
+#chirpForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#chirpForm > * {
+  margin: 20px 30px;
+}
+
+.submitDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
