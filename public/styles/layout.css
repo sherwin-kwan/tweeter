@@ -76,6 +76,10 @@ textarea {
   border-bottom: 2px solid;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
