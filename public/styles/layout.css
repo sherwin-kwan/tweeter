@@ -27,6 +27,9 @@ body {
 strong {
   font-weight: 600;
 }
+h1, h2, h3, h4, h5, h6 {
+  margin: 30px;
+}
 
 /* Styles for the main body of the page where the chirps appear */
 
@@ -34,7 +37,6 @@ main {
   width: 90%;
   margin: auto;
   background-color: #f4f1ec;
-  border: 5px solid;
 }
 
 #chirpForm {
@@ -50,6 +52,19 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  font-family: "Bungee", cursive, sans-serif;
+}
+
+label {
+  margin-right: 50px;
+}
+
+button {
+  background-color: #aaffaa;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #4056A1;
 }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
