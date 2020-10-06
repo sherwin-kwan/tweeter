@@ -41,7 +41,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section id="sendChirp" class="sendChirp">
-      <h2>Send a new chirp to the world!</h2>
+      <h2>Welcome to Chirper - like Twitter but with 7% more characters</h2>
       <form id="chirpForm" action="/tweets/" method="POST">
         <div class="tempname">
           <label for="username">
@@ -49,12 +49,14 @@
           </label>
           <input name="user" id="username" placeholder="Jane Doe" type="text">
         </div>
-        <textarea placeholder="Share something with the world" name="text"></textarea>
+        <textarea id="chirpTextArea" placeholder="Share something with the world" name="text"></textarea>
         <div class="submitDiv">
           <button type="submit">Send!</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+          <output name="counter" class="counter" for="tweet-text">420</output>
         </div>
       </form>
+    </section>
+    <section id="listOfChirps">
     </section>
   </main>
   <footer class="text-center">
