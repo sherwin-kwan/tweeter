@@ -66,6 +66,16 @@ button {
   padding: 10px 20px;
   color: #4056A1;
 }
+
+textarea {
+  width: 60%;
+  margin: auto;
+  margin-left: 0px;
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: 2px solid;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
