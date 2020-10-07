@@ -4,15 +4,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-/* functions to produce HTML for chirps */
+/* LOADING CHIRPS ONTO THE PAGE */
+
+const escape = require('./helpers.js').escapeChars;
 
 // Takes a single chirp object formatted in JSON from the database, and returns a jQuery object containing HTML markup to display the chirp
 const createChirpElement = (chirpContent) => {
   const avatar = chirpContent.user.avatars;
-  const name = chirpContent.user.name;
-  const handle = chirpContent.user.handle;
+  const name = escape(chirpContent.user.name);
+  const handle = escape(chirpContent.user.handle);
   const time = chirpContent.created_at;
-  const chirpText = chirpContent.content.text;
+  const chirpText = escape(chirpContent.content.text);
   return $(`
   <article>
   <header>
@@ -50,7 +52,7 @@ const form_submit = (event, $form) => {
   } else if (chirpLength === 0) {
     throw new Error('Please type a chirp in the text area provided');
   };
-  console.log('Submitting: ' + $form.serialize());
+  console.log($form.serialize()); // This is unsafe as the form could contain chracters used for XSS
   $.ajax('/tweets/', { 
     method: 'POST', 
     data: $form.serialize()
