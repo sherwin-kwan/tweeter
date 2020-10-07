@@ -33,7 +33,6 @@ article > * {
 
 article > header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
@@ -41,12 +40,11 @@ article > header {
 /* Ensure name and avatar are at top left, while handle is at top right */
 article .name {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 
-article .name > *, article address {
+article img, article address {
   margin: 10px;
 }
 
@@ -59,9 +57,9 @@ article p {
 article footer {
   font-size: 0.8em;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%; 
 }
 
 article time {
