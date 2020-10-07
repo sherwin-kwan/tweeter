@@ -80,6 +80,14 @@ textarea {
   text-align: center;
 }
 
+/* Individual Chirps */
+
+#listOfChirps article {
+  margin: auto;
+  width: 90%;
+  border: 2px solid black;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
