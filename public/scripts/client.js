@@ -37,29 +37,6 @@ const createChirpElement = (chirpContent) => {
 const data = [
   {
     "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
       "name": "Abraham Lincoln",
       "avatars": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/800px-Abraham_Lincoln_O-77_matte_collodion_print.jpg",
       "handle": "@HonestAbe"
@@ -97,11 +74,40 @@ const data = [
 // Renders a series of chirps with jQuery
 const renderChirps = function (arrOfChirps) {
   arrOfChirps.forEach((chirp) => {
-    $('#listOfChirps').append(createChirpElement(chirp));
+    $('#listOfChirps').prepend(createChirpElement(chirp));
   });
 };
 
-// Renders chirps on document ready
+const form_submit = (event, $form) => {
+  event.preventDefault();
+  console.log('Submitting: ' + $form.serialize());
+  $.ajax('/tweets/', { 
+    method: 'POST', 
+    data: $form.serialize()
+   })
+    .then(console.log('Posted'))
+    .fail((xhr, status, err) => {
+      console.log(status, err);
+    })
+}
+
+const load_chirps = () => {
+  $.ajax('/tweets/', {method: 'GET'})
+  .then((res) => renderChirps(res))
+  .fail((xhr, status, err) => {
+    console.log(status, err);
+  })
+}
+
 $(function () {
+  // Renders chirps on document ready
+  load_chirps();
   renderChirps(data);
+  // Handler for submitting the new chirp form.
+  const $chirpForm = $('#chirpForm');
+  $chirpForm.submit(function (event) {
+    // Pass two arguments to form_submit function: the event, and the jQuery wrapper for the new chirp form
+    form_submit(event, $(this));
+    load_chirps();
+  });
 });
