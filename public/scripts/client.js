@@ -33,44 +33,6 @@ const createChirpElement = (chirpContent) => {
       `);
 };
 
-// This is a temporary storage for the data until the in-memory database can be linked properly
-const data = [
-  {
-    "user": {
-      "name": "Abraham Lincoln",
-      "avatars": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/800px-Abraham_Lincoln_O-77_matte_collodion_print.jpg",
-      "handle": "@HonestAbe"
-    },
-    "content": {
-      "text": "Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.\
-      And three dozen years ago, I started hunting vampires."
-    },
-    "created_at": 0
-  },
-  {
-    "user": {
-      "name": "George Harrison",
-      "avatars": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/George_Harrison_1974.jpg/690px-George_Harrison_1974.jpg",
-      "handle": "@GeorgeH"
-    },
-    "content": {
-      "text": "Here comes the sun, and I say it's alright #harekrishna"
-    },
-    "created_at": 0
-  },
-  {
-    "user": {
-      "name": "Jules",
-      "avatars": "https://i.pinimg.com/originals/38/80/be/3880be0b24e775a7f47402687421d533.jpg",
-      "handle": "@royalewithcheese"
-    },
-    "content": {
-      "text": "Say 'what' again. Say 'what' again, I dare you, I double dare you motherfucker, say what one more Goddamn time!"
-    },
-    "created_at": 778377600
-  }
-]
-
 // Renders a series of chirps with jQuery
 const renderChirps = function (arrOfChirps) {
   arrOfChirps.forEach((chirp) => {
@@ -80,6 +42,14 @@ const renderChirps = function (arrOfChirps) {
 
 const form_submit = (event, $form) => {
   event.preventDefault();
+  // Begin with validating the input
+  const chirpLength = $form.find('textarea').val().length;
+  console.log(chirpLength);
+  if (chirpLength > 300) {
+    throw new Error(`Your message is too long. Please shorten your chirp and try again.`);
+  } else if (chirpLength === 0) {
+    throw new Error('Please type a chirp in the text area provided');
+  };
   console.log('Submitting: ' + $form.serialize());
   $.ajax('/tweets/', { 
     method: 'POST', 
@@ -102,7 +72,6 @@ const load_chirps = () => {
 $(function () {
   // Renders chirps on document ready
   load_chirps();
-  renderChirps(data);
   // Handler for submitting the new chirp form.
   const $chirpForm = $('#chirpForm');
   $chirpForm.submit(function (event) {
