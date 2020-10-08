@@ -2,7 +2,7 @@
 /* For the sake of future-proofing (for example, if this app ever seeks parity with Twitter and its 280-character count), here is 
  a one-stop place to changing key constants. */
 
- const maxChirpLength = 140;
+const maxChirpLength = 140;
 
 // HELPER FUNCTIONS
 
@@ -10,11 +10,31 @@
 // It borrows the jQuery "createTextNode" function (used for sanitizing the contents of HTML nodes), by creating
 // a dummy div tag to encase the string. The div is not actually output as HTML.
 
-const escapeChars =  function(str) {
+const escapeChars = function (str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
+
+const processTime = (date) => {
+  // This function converts a Javascript date object into a "time since" label (e.g. "5 days ago")
+  const now = new Date(); // creates a date object for "right now"
+  if (theDate > now) {
+    // The chirp was posted in the future by someone messing with the database
+    console.log(`One or more chirps is timestamped in the future`);
+    return 'Posted by a time traveller from the future';
+  } else if (now - theDate > 86400000) {
+    // The chirp was posted less than 24 hours ago
+
+  } else {
+    // Chirp was posted more than 24 hours ago
+    
+  }
+  console.log(theDate.getDate());
+  console.log(theDate.getMonth());
+  console.log(theDate.getFullYear());
+  return theDate;
+}
 
 // Takes a single chirp object formatted in JSON from the database, and returns a jQuery object containing HTML markup to display the chirp
 // escapeChars is called on user-submitted fields to sanitize outputs and avoid the possibility of scripting attacks
@@ -22,9 +42,9 @@ const createChirpElement = (chirpContent) => {
   const avatar = chirpContent.user.avatars;
   const name = escapeChars(chirpContent.user.name);
   const handle = escapeChars(chirpContent.user.handle);
-  const time = chirpContent.created_at;
+  const theDate = new Date(chirpContent.created_at);
+  const time = processTime(theDate);
   const chirpText = escapeChars(chirpContent.content.text);
-  console.log(name, handle, chirpText);
   return $(`
   <article>
   <header>
@@ -35,7 +55,7 @@ const createChirpElement = (chirpContent) => {
     ${chirpText}
   </p>
   <footer>
-    <time>${time}</time>
+    <time title="${theDate}">${time}</time>
     <figure>
       <span class="emoji">🔁</span>
       <span class="emoji">💖</span>
@@ -52,25 +72,28 @@ const renderChirps = function (arrOfChirps) {
   });
 };
 
+// Submitting a new chirp
 const form_submit = (event, $form) => {
   event.preventDefault();
   // Begin with validating the input
   const chirpLength = $form.find('textarea').val().length;
-  console.log(chirpLength);
   // Errors if chirps are blank or too long.
   if (chirpLength > maxChirpLength) {
     throw new Error(`Your message is too long. Please shorten your chirp and try again.`);
   } else if (chirpLength === 0) {
     throw new Error('Please type a chirp in the text area provided');
   };
-  console.log($form.serialize());
   // Note: No validation on the input side, people can put <script> tags into the database if they want. Data is only sanitized when output and 
   // rendered onto the page.
-  $.ajax('/tweets/', { 
-    method: 'POST', 
+  $.ajax('/tweets/', {
+    method: 'POST',
     data: $form.serialize()
-   })
-    .then(load_chirps)
+  })
+    .then(() => {
+      $form.find('textarea').val('');
+      $form.find('.counter').val(maxChirpLength);
+      load_chirps();
+    })
     .fail((xhr, status, err) => {
       console.log(status, err);
     })
@@ -78,11 +101,11 @@ const form_submit = (event, $form) => {
 
 // Loads the chirps asynchronously from database
 const load_chirps = () => {
-  $.ajax('/tweets/', {method: 'GET'})
-  .then((res) => renderChirps(res))
-  .fail((xhr, status, err) => {
-    console.log(status, err);
-  })
+  $.ajax('/tweets/', { method: 'GET' })
+    .then((res) => renderChirps(res))
+    .fail((xhr, status, err) => {
+      console.log(status, err);
+    })
 };
 
 $(function () {
