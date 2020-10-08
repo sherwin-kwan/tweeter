@@ -12,17 +12,6 @@
     },
     {
       "user": {
-        "name": "George Harrison",
-        "avatars": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/George_Harrison_1974.jpg/690px-George_Harrison_1974.jpg",
-        "handle": "@GeorgeH"
-      },
-      "content": {
-        "text": "Here comes the sun, and I say it's alright"
-      },
-      "created_at": 1
-    },
-    {
-      "user": {
         "name": "Jules",
         "avatars": "https://i.pinimg.com/originals/38/80/be/3880be0b24e775a7f47402687421d533.jpg",
         "handle": "@royalewithcheese"
@@ -39,7 +28,7 @@
         "handle": "@Symposium"
       },
       "content": {
-        "text": "What am I?"
+        "text": "What am I doing here? What is my purpose?"
       },
       "created_at": 3
     },
@@ -65,4 +54,5 @@
       },
       "created_at": 5
     }
+    
   ]
