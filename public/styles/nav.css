@@ -16,14 +16,16 @@ nav.top-bar {
   padding-right: 5%;
 }
 
-nav.top-bar span, nav.top-bar button {
+nav.top-bar a, nav.top-bar button {
   padding: 1.5em;
 }
 
 /* Logo */
-nav.top-bar span {
+nav.top-bar a {
   font-family: "Bungee", cursive, sans-serif;
   font-size: 1.5em;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Remove default button style - write tweet button will have the same styles as the rest of the header */
@@ -37,6 +39,7 @@ nav.top-bar button {
 nav.top-bar button:hover {
   background-color: yellow;
   color: red;
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {

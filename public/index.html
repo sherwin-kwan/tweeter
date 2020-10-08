@@ -3,7 +3,7 @@
 
 <head>
   <!-- Meta Information -->
-  <title>Chirper - Twitter light</title>
+  <title>Chirper - Twitter lite</title>
 
   <!-- Fonts -->
   <link
@@ -20,12 +20,17 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css">
   <link rel="stylesheet" href="/styles/article.css" type="text/css">
 
+  <!-- jQuery -->
+  <script defer src="/scripts/jquery-3.5.1.js"></script>
+  <!-- App JS -->
+  <script defer src="/scripts/functions.js"></script>
+  <script defer src="/scripts/client.js"></script>
 </head>
 
 <body>
   <!-- Top nav bar (fixed positioning) -->
   <nav class="top-bar">
-    <span>chirper</span>
+    <a href="/#">chirper</a>
     <button><strong>Write</strong> a new chirp</a>
   </nav>
   <div class="content">
@@ -42,23 +47,25 @@
     <main class="container">
       <section id="sendChirp" class="sendChirp">
         <h2>Welcome to Chirper - like Twitter but with half the characters</h2>
-        <form id="chirpForm" display="none" action="/tweets/" method="POST">
-          <!--<div class="tempname">
+        <div class="formWrapper">
+          <form class="chirpForm" action="/tweets/" method="POST">
+            <!--<div class="tempname">
             <label for="username">
               Your handle:
             </label>
             <input name="user" id="username" placeholder="Jane Doe" type="text">
           </div>-->
-          <textarea id="chirpTextArea" placeholder="Share something with the world" name="text"></textarea>
-          <div class="submitDiv">
-            <button type="submit">Send!</button>
-            <p>
-              <!-- Error shows up here asychronously -->
-            </p>
-            <output name="counter" class="counter" for="tweet-text">
-              <!--Number goes here asynchronously--></output>
-          </div>
-        </form>
+            <textarea id="chirpTextArea" placeholder="Share something with the world" name="text"></textarea>
+            <div class="submitDiv">
+              <button type="submit">Send!</button>
+              <p>
+                <!-- Error shows up here asychronously -->
+              </p>
+              <output name="counter" class="counter" for="tweet-text">
+                <!--Number goes here asynchronously--></output>
+            </div>
+          </form>
+        </div>
       </section>
       <section id="listOfChirps">
         <!-- Chirps get appended here by the code in client.js on document ready -->
@@ -70,11 +77,7 @@
     --><a href="https://github.com/sherwin-kwan/tweeter">Docs and source code here</a>.<br>
         Having issues? <a href="https://github.com/sherwin-kwan/tweeter/issues">Report a bug!</a>
       </p>
-      <!-- jQuery -->
-      <script src="/scripts/jquery-3.5.1.js"></script>
-      <!-- App JS -->
-      <script src="/scripts/client.js"></script>
-      <script src="/scripts/char-counter.js"></script>
+
     </footer>
 
   </div>
