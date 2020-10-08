@@ -1,13 +1,6 @@
-# Intro
+## Intro
 
 Chirper (Tweeter) is a one-page application which mimics Twitter (with the pre-2017 character count). Users may submit short messages of up to 140 characters.
-
-# Copyright/Originality
-
-The back-end code was supplied by Lighthouse Labs staff; front-end code (everything in /public) is (C) 2020 Sherwin Kwan.
-
-Warning: the original codebase did not have a license file, so although this has been posted on Github, it's not legally FOSS. If you're
-planning on forking this or using it in your own code, you should verify with Lighthouse Labs first.
 
 ## Stack
 
@@ -29,3 +22,10 @@ change the constant *PORT* in */server/index.js*.
 
 * This is a one page webapp, so localhost:8080/ is the only HTML page.
 * For debugging purposes, you may access the in-memory database in JSON format at localhost:8080/tweets
+
+## Copyright/Originality
+
+The back-end code was supplied by Lighthouse Labs staff; front-end code (everything in /public) is (C) 2020 Sherwin Kwan.
+
+Warning: the original codebase did not have a license file, so although this has been posted on Github, it's not legally FOSS. If you're
+planning on forking this or using it in your own code, you should verify with Lighthouse Labs first.
