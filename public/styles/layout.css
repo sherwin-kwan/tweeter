@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 30px;
 }
 
-/* Styles for the main body of the page where the chirps appear */
+/* Styles for the main body of the page where the chirp submitting tool appears */
 
 main {
   width: 90%;
@@ -56,6 +56,14 @@ main {
   font-family: "Bungee", cursive, sans-serif;
 }
 
+.submitDiv p {
+  /* Error messages */
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0 2em;
+  color: red;
+  font-weight: 300;
+}
+
 label {
   margin-right: 50px;
 }
@@ -68,7 +76,7 @@ button {
 }
 
 textarea {
-  width: 60%;
+  max-width: 1000px;
   margin: auto;
   margin-left: 0px;
   background-color: #f4f1ec;
