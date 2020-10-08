@@ -19,21 +19,42 @@ const escapeChars = function (str) {
 const processTime = (date) => {
   // This function converts a Javascript date object into a "time since" label (e.g. "5 days ago")
   const now = new Date(); // creates a date object for "right now"
-  if (theDate > now) {
+  if (date > now) {
     // The chirp was posted in the future by someone messing with the database
     console.log(`One or more chirps is timestamped in the future`);
     return 'Posted by a time traveller from the future';
-  } else if (now - theDate > 86400000) {
+  } else if (now - date < 86400000) {
     // The chirp was posted less than 24 hours ago
-
-  } else {
-    // Chirp was posted more than 24 hours ago
-    
+    // First check if it was posted more than 1 hour ago
+    if (now - date > 3600000) {
+      return `${Math.floor((now - date) / 3600000)} hours ago`;
+    } else if (now - date > 60000) {
+      return `${Math.floor((now - date) / 60000)} minutes ago`;
+    } else if (now - date > 1000) {
+      return `${Math.floor((now - date) / 1000)} seconds ago`;
+    } else {
+      return 'Just now';
+    }
   }
-  console.log(theDate.getDate());
-  console.log(theDate.getMonth());
-  console.log(theDate.getFullYear());
-  return theDate;
+  // Chirp was posted more than 24 hours ago. The function will return X days/months/years ago based on calendar months and years.
+  const yearsAgo = now.getFullYear() - date.getFullYear();
+  if (yearsAgo === 1) {
+    return 'Last year';
+  } else if (yearsAgo) {
+    return `${yearsAgo} years ago`;
+  };
+  const monthsAgo = now.getMonth() - date.getMonth();
+  if (monthsAgo === 1) {
+    return 'Last month';
+  } else if (monthsAgo) {
+    return `${monthsAgo} months ago`;
+  };
+  const daysAgo = now.getDate() - date.getDate();
+  if (daysAgo === 1) {
+    return 'Yesterday';
+  } else {
+    return `${daysAgo} days ago`;
+  };
 }
 
 // Takes a single chirp object formatted in JSON from the database, and returns a jQuery object containing HTML markup to display the chirp
