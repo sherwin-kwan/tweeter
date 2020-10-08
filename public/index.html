@@ -31,7 +31,7 @@
   <!-- Top nav bar (fixed positioning) -->
   <nav class="top-bar">
     <a href="/#">chirper</a>
-    <button><strong>Write</strong> a new chirp</a>
+    <button><strong>Write</strong> a new chirp</button>
   </nav>
   <div class="content">
     <header>
@@ -47,8 +47,8 @@
     <main class="container">
       <section id="sendChirp" class="sendChirp">
         <h2>Welcome to Chirper - like Twitter but with half the characters</h2>
-        <div class="formWrapper">
-          <form class="chirpForm" action="/tweets/" method="POST">
+        <div id="formWrapper">
+          <form id="chirpForm" action="/tweets/" method="POST">
             <!--<div class="tempname">
             <label for="username">
               Your handle:

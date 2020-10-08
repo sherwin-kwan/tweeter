@@ -51,16 +51,16 @@ main {
 }
 
 /* The form to write a new chirp is hidden by default. This will be changed to display: block using the jQuery .show() method */
-.formWrapper {
+#formWrapper {
   display: none;
 }
 
-.chirpForm {
+#chirpForm {
   display: flex;
   flex-direction: column;
 }
 
-.chirpForm > * {
+#chirpForm > * {
   margin: 20px 30px;
 }
 
