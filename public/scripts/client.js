@@ -1,14 +1,15 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+// CONSTANTS
+/* For the sake of future-proofing (for example, if this app ever seeks parity with Twitter and its 280-character count), here is 
+ a one-stop place to changing key constants. */
 
-/* LOADING CHIRPS ONTO THE PAGE */
+ const maxChirpLength = 140;
 
-// Helper function which escapes unwanted characters in a string to prevent script injections
+// HELPER FUNCTIONS
+
+// Helper function (copied from Compass) which escapes unwanted characters in a string to prevent script injections
 // It borrows the jQuery "createTextNode" function (used for sanitizing the contents of HTML nodes), by creating
 // a dummy div tag to encase the string. The div is not actually output as HTML.
+
 const escapeChars =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -16,6 +17,7 @@ const escapeChars =  function(str) {
 };
 
 // Takes a single chirp object formatted in JSON from the database, and returns a jQuery object containing HTML markup to display the chirp
+// escapeChars is called on user-submitted fields to sanitize outputs and avoid the possibility of scripting attacks
 const createChirpElement = (chirpContent) => {
   const avatar = chirpContent.user.avatars;
   const name = escapeChars(chirpContent.user.name);
@@ -43,7 +45,7 @@ const createChirpElement = (chirpContent) => {
       `);
 };
 
-// Renders a series of chirps with jQuery
+// Renders a series of chirps into the appropriate space on the page with jQuery
 const renderChirps = function (arrOfChirps) {
   arrOfChirps.forEach((chirp) => {
     $('#listOfChirps').prepend(createChirpElement(chirp));
@@ -56,7 +58,7 @@ const form_submit = (event, $form) => {
   const chirpLength = $form.find('textarea').val().length;
   console.log(chirpLength);
   // Errors if chirps are blank or too long.
-  if (chirpLength > 300) {
+  if (chirpLength > maxChirpLength) {
     throw new Error(`Your message is too long. Please shorten your chirp and try again.`);
   } else if (chirpLength === 0) {
     throw new Error('Please type a chirp in the text area provided');
