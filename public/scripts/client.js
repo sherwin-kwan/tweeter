@@ -78,9 +78,9 @@ const createChirpElement = (chirpContent) => {
   <footer>
     <time title="${theDate}">${time}</time>
     <figure>
-      <span class="emoji">🔁</span>
-      <span class="emoji">💖</span>
-      <span class="emoji">🙋</span>
+      <span class="emoji" title="re-chirp">🔁</span>
+      <span class="emoji" title="favourite">💖</span>
+      <span class="emoji" title="reply">🙋</span>
     </figure>
   </footer>
       `);
