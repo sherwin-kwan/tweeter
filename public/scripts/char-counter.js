@@ -4,9 +4,11 @@ const changeCounter = ($textarea, $counterToChange, maxChars) => {
   console.log('This is: ' + this);
   let charsRemaining = maxChars - $textarea.val().length;
   $counterToChange.val(charsRemaining);
-  if (charsRemaining <= 0) {
+  if (charsRemaining < 0) {
     $counterToChange.css('color', 'red');
-  };
+  } else {
+    $counterToChange.css('color', 'black');
+  }
 };
 
 // Wrap it to ensure code only runs when document is "ready".

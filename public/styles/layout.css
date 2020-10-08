@@ -79,7 +79,7 @@ label {
   margin-right: 50px;
 }
 
-button {
+.content button {
   background-color: #aaffaa;
   border-radius: 10px;
   padding: 10px 20px;
@@ -105,7 +105,7 @@ textarea {
   /* .content {
     flex-direction: row;
   } */
-  main, footer {
+  main, .content > footer {
     margin-right: 5%;
     width: 60%;
     float: right;

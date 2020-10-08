@@ -16,18 +16,27 @@ nav.top-bar {
   padding-right: 5%;
 }
 
-nav.top-bar span {
+nav.top-bar span, nav.top-bar button {
   padding: 1.5em;
 }
 
-#logo {
+/* Logo */
+nav.top-bar span {
   font-family: "Bungee", cursive, sans-serif;
   font-size: 1.5em;
 }
 
-#writeNew:hover {
-  background-color: #c0c000;
-  color: #4056A1;
+/* Remove default button style - write tweet button will have the same styles as the rest of the header */
+nav.top-bar button {
+  color: inherit;
+  background-color: inherit;
+  border: none;
+}
+
+/* Link to write a new chirp */
+nav.top-bar button:hover {
+  background-color: yellow;
+  color: red;
 }
 
 @media (min-width: 1024px) {
