@@ -3,8 +3,8 @@
 nav.top-bar {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
-  color: white;
+  background-color: #80ff80;
+  color: #4056A1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,6 +12,8 @@ nav.top-bar {
   position: fixed;
   top: 0px;
   z-index: 1;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 nav.top-bar span {
@@ -20,4 +22,17 @@ nav.top-bar span {
 
 #logo {
   font-family: "Bungee", cursive, sans-serif;
+  font-size: 1.5em;
+}
+
+#writeNew:hover {
+  background-color: #c0c000;
+  color: #4056A1;
+}
+
+@media (min-width: 1024px) {
+  nav.top-bar {
+    background-color: #4056A1;
+    color: white;
+  }
 }

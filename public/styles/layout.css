@@ -17,10 +17,20 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
 }
+
+.content {
+  margin-top: 120px; /* Ensure the fixed navbar doesn't cover the header */
+}
+
+/* Ensures that the header and main portions of the body behave responsively
+.content {
+  display: flex;
+  flex-direction: column;
+} */
 
 /* bolding and italics */
 
@@ -37,6 +47,7 @@ main {
   width: 90%;
   margin: auto;
   background-color: #f4f1ec;
+  max-width: 1300px;
 }
 
 #chirpForm {
@@ -88,6 +99,17 @@ textarea {
   text-align: center;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* Responsive style changes for desktop (1024 pixel width and above) */
+
+@media (min-width: 1024px) {
+  /* .content {
+    flex-direction: row;
+  } */
+  main, footer {
+    margin-right: 5%;
+    width: 60%;
+    float: right;
+    margin-top: 5vh;
+  }
+  
+}

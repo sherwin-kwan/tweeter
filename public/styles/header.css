@@ -1,13 +1,27 @@
 /* CSS code for the header (the part containing the profile pic) */
 
-body > header {
+.content > header {
   height: 400px;
   width: 100%;
-  margin-top: 120px; /* Ensure the fixed navbar doesn't cover the header */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #aaffaa;
-  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  background-color: #80ff80;
+  background-image: none;
+}
+
+@media (min-width: 1024px) {
+  .content > header {
+    margin-left: 3%;
+    margin-right: 3%;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+    margin-top: 5vh;
+    max-height: 45vh;
+    width: 29%;
+    position: fixed;
+    height: 100%;
+    float: left;
+  }
+
 }
