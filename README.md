@@ -1,11 +1,18 @@
 ## Intro
 
-Chirper (Tweeter) is a one-page application which mimics Twitter (with the pre-2017 character count). Users may submit short messages of up to 140 characters.
+Chirper (Tweeter) is a one-page application which mimics Twitter. Users may submit short messages of up to 140 characters.
 
 ## Stack
 
-Back-end: Node, Express
-Front-end: jQuery
+* Back-end: Node, Express
+* Front-end: jQuery, Sass
+
+## Screenshots
+
+* ![Mobile Homepage]
+* ![Desktop Homepage]
+* ![Errors]
+* ![Reading Chirps]
 
 ## Running The App
 
@@ -14,15 +21,23 @@ Front-end: jQuery
   * chance
   * express
   * md5
-  * nodemon
+  * nodemon (dev dependency)
+  * sass (dev dependency)
 * Start the server with ```npm run local```. By default the app runs on port 8080; if you need to change this (e.g. if there is a VM conflict),
 change the constant *PORT* in */server/index.js*.
+* All the CSS files in this project are compiled from Sass (.scss) files. Once you have installed Sass with ```npm install sass```, you will be able to edit the .scss files, then run ```sass public/styles``` to automatically compile these into CSS. See [here](https://sass-lang.com/guide) for more information.
 
 ## Routes
 
-* This is a one page webapp, so localhost:8080/ is the only HTML page.
+* This is a one page webapp. Once you have a server running, visit localhost:8080/ with browser to see the one page.
 * For debugging purposes, you may access the in-memory database in JSON format at localhost:8080/tweets
   * You may wish to install a JSON reading add-on (e.g. JSON Viewer for Chrome), or use a browser with a built-in JSON reader (e.g. Firefox)
+* This is a responsive webapp. If you wish to view the mobile version, change the width of your viewport to 1023 pixels wide (or less).
+
+## Known Issues ##
+
+* The "go back to top" button at the bottom right of the screen has not yet been implemented. As a workaround, clicking on "Chirper" at the top left will return you to the top of the screen, on both mobile and desktop.
+* The character count (140) is four years behind the times, and needs to be doubled for parity with Twitter.
 
 ## Copyright/Originality
 
