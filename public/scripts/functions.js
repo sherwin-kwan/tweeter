@@ -154,6 +154,7 @@ const form_submit = (event, $form) => {
     .then(() => {
       $form.find('textarea').val('');
       $form.find('.counter').val(maxChirpLength);
+      $form.find('p').text('');
       load_chirps();
     })
     .fail((xhr, status, err) => {

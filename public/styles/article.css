@@ -34,6 +34,7 @@ article img, article address {
 article > p {
   padding: 10px;
   margin: 20px;
+  word-wrap: break-word;
 }
 
 article > footer {
