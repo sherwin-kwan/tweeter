@@ -1,3 +1,7 @@
+// This file contains functions that run on page load or when an event triggers.
+// Helper functions are found in ./functions.js
+
+
 
 $(function() {
   // RUNS ON DOCUMENT READY

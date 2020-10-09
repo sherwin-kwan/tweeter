@@ -21,6 +21,8 @@ const maxChirpLength = 140;
 const changeCounter = ($textarea, $counterToChange, maxChars) => {
   let charsRemaining = maxChars - $textarea.val().length;
   $counterToChange.val(charsRemaining);
+  const counterTooltip = (charsRemaining >= 0) ? `${charsRemaining} characters remaining` : `${-charsRemaining} characters over the limit`;
+  $counterToChange.attr('title', counterTooltip);
   if (charsRemaining < 0) {
     $counterToChange.css('color', 'red');
   } else {
@@ -100,7 +102,7 @@ const createChirpElement = (chirpContent) => {
   return $(`
    <article>
    <header>
-     <div class="name"><img class="avatar" width="50px" height="50px" src="${avatar}">${name}</div>
+     <div class="name" title="A random name and avatar image has been generated. In a future version of Chirper, you will be able to register accounts and personalize these."><img class="avatar" width="50px" height="50px" src="${avatar}">${name}</div>
      <address>${handle}</address>
    </header>
    <p>
