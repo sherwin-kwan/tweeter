@@ -7,7 +7,7 @@
 
 
 // CONSTANTS
-/* For the sake of future-proofing (for example, if this app ever seeks parity with Twitter and its 280-character count), here is 
+/* For the sake of future-proofing (for example, if this app ever seeks parity with Twitter and its 280-character count), here is
  a one-stop place to changing key constants. */
 
 const maxChirpLength = 140;
@@ -73,20 +73,20 @@ const processTime = (date) => {
     return 'Last year';
   } else if (yearsAgo) {
     return `${yearsAgo} years ago`;
-  };
+  }
   const monthsAgo = now.getMonth() - date.getMonth();
   if (monthsAgo === 1) {
     return 'Last month';
   } else if (monthsAgo) {
     return `${monthsAgo} months ago`;
-  };
+  }
   const daysAgo = now.getDate() - date.getDate();
   if (daysAgo === 1) {
     return 'Yesterday';
   } else {
     return `${daysAgo} days ago`;
-  };
-}
+  }
+};
 
 // Takes a single chirp object formatted in JSON from the database, and returns a jQuery object containing HTML markup to display the chirp
 // escapeChars is called on user-submitted fields to sanitize outputs and avoid the possibility of scripting attacks
@@ -128,7 +128,7 @@ const load_chirps = () => {
     })
     .fail((xhr, status, err) => {
       console.log(status, err);
-    })
+    });
 };
 
 
@@ -144,8 +144,8 @@ const form_submit = (event, $form) => {
     throw new Error(`Your message is too long. Please shorten your chirp and try again.`);
   } else if (chirpLength === 0) {
     throw new Error('Please type a chirp in the text area provided');
-  };
-  // Note: No validation on the input side, people can put <script> tags into the database if they want. Data is only sanitized when output and 
+  }
+  // Note: No validation on the input side, people can put <script> tags into the database if they want. Data is only sanitized when output and
   // rendered onto the page.
   $.ajax('/tweets/', {
     method: 'POST',

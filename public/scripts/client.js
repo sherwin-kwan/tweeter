@@ -1,5 +1,5 @@
 
-$(function () {
+$(function() {
   // RUNS ON DOCUMENT READY
 
   // CONSTANTS
@@ -31,7 +31,7 @@ $(function () {
 
 
   // 1) Listen for clicking the button to compose new chirp
-  $composeButton.on('click', function(event) {
+  $composeButton.on('click', function() {
     // Up/down sliding motion to reveal the textarea
     if ($formWrapper.is(':visible')) {
       $formWrapper.slideUp(500);
@@ -41,7 +41,7 @@ $(function () {
   })
 
   // 2) Listen for inputs in the textarea and change the counter number
-  $chirpTextArea.on('input', (event) => {
+  $chirpTextArea.on('input', () => {
     changeCounter($chirpTextArea, $counter, maxChirpLength);
   });
 
@@ -54,7 +54,7 @@ $(function () {
     } catch (err) {
       console.log('Error');
       $(this).find('.submitDiv p').text(err.message);
-    };
+    }
   });
 
 });

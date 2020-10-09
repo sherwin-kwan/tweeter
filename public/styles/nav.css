@@ -17,7 +17,7 @@ nav.top-bar {
 }
 
 nav.top-bar a, nav.top-bar button {
-  padding: 1.5em;
+  padding: 1.5rem;
 }
 
 /* Logo */
@@ -33,6 +33,7 @@ nav.top-bar button {
   color: inherit;
   background-color: inherit;
   border: none;
+  font-size: 1.3em;
 }
 
 /* Link to write a new chirp */

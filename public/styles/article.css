@@ -1,23 +1,5 @@
 /* Styles for individual chirps/tweets */
-/* For reference the HTML for each chirp looks like:
- <article>
-  <header>
-    <div class="name"><img class="avatar" height="30px" width="30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/800px-Abraham_Lincoln_O-77_matte_collodion_print.jpg">Abraham Lincoln</div>
-    <address>@honestabe</address>
-  </header>
-  <p>
-    Fourscore and seven years ago, I started slaying vampires.
-  </p>
-  <footer>
-    <time>5 days ago</time>
-    <figure>
-      <span class="emoji">🔁</span>
-      <span class="emoji">💖</span>
-      <span class="emoji">🙋</span>
-    </figure>
-  </footer>
-</article>
-    */
+
 
 article {
   display: flex;

@@ -22,6 +22,7 @@ change the constant *PORT* in */server/index.js*.
 
 * This is a one page webapp, so localhost:8080/ is the only HTML page.
 * For debugging purposes, you may access the in-memory database in JSON format at localhost:8080/tweets
+  * You may wish to install a JSON reading add-on (e.g. JSON Viewer for Chrome), or use a browser with a built-in JSON reader (e.g. Firefox)
 
 ## Copyright/Originality
 

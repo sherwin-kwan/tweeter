@@ -50,6 +50,10 @@ main {
   max-width: 1300px;
 }
 
+main h2 {
+  text-align: center;
+}
+
 /* The form to write a new chirp is hidden by default. This will be changed to display: block using the jQuery .show() method */
 #formWrapper {
   display: none;
