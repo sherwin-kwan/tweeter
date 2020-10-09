@@ -21,7 +21,7 @@ body {
   color: $bodyTextColour;
   background-color: $bodyBackgroundColour;
   font-size: 18px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $regularText;
   font-weight: 300;
 }
 
@@ -34,9 +34,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 30px;
 }
 
-/* Styles for the main body of the page where the chirp submitting tool appears */
-
-
+// TOP NAVIGATION BAR
 /* CSS for the top navigation bar that says "Write a new chirp" */
 
 nav.top-bar {
@@ -57,7 +55,7 @@ nav.top-bar {
     /* Logo */
   a {
     padding: 1.5rem;
-    font-family: "Bungee", cursive, sans-serif;
+    font-family: $fancyText;
     font-size: 1.5em;
     color: inherit;
     text-decoration: none;
@@ -82,6 +80,9 @@ nav.top-bar {
   }
 }
 
+// HEADER
+//
+//
 /* CSS code for the header (the part containing the profile pic). Note the use of .content > holder to prevent style
 from applying to headers of each chirp */
 
@@ -110,6 +111,9 @@ main {
   }
 }
 
+// FORM RELATED STYLES
+//
+//
 /* The form to write a new chirp is hidden by default. This will be changed to display: block using the jQuery .show() method */
 #formWrapper {
   display: none;
@@ -140,11 +144,11 @@ label {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-family: "Bungee", cursive, sans-serif;
+  font-family: $fancyText;
 
   p {
     /* Error messages */
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: $regularText;
     margin: 0 2em;
     color: red;
     font-weight: 300;
@@ -163,6 +167,9 @@ textarea {
 .text-center {
   text-align: center;
 }
+
+
+/* Styles for individual chirps */
 
 article {
   display: flex;
