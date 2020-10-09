@@ -11,7 +11,7 @@ Chirper (Tweeter) is a one-page application which mimics Twitter. Users may subm
 
 Mobile Homepage
 
-![](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/mobile.png)
+![](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/mobileview.png)
 
 Desktop Homepage
 
