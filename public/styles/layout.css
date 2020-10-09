@@ -1,72 +1,5 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
-/*
- * Global layout stuff
- */
 
-body {
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 18px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 300;
-}
-
-.content {
-  margin-top: 120px; /* Ensure the fixed navbar doesn't cover the header */
-}
-
-/* Ensures that the header and main portions of the body behave responsively
-.content {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* bolding and italics */
-
-strong {
-  font-weight: 600;
-}
-h1, h2, h3, h4, h5, h6 {
-  margin: 30px;
-}
-
-/* Styles for the main body of the page where the chirp submitting tool appears */
-
-main {
-  width: 90%;
-  margin: auto;
-  background-color: #f4f1ec;
-  max-width: 1300px;
-}
-
-main h2 {
-  text-align: center;
-}
-
-/* The form to write a new chirp is hidden by default. This will be changed to display: block using the jQuery .show() method */
-#formWrapper {
-  display: none;
-}
-
-#chirpForm {
-  display: flex;
-  flex-direction: column;
-}
-
-#chirpForm > * {
-  margin: 20px 30px;
-}
 
 .submitDiv {
   display: flex;
@@ -108,17 +41,5 @@ textarea {
   text-align: center;
 }
 
-/* Responsive style changes for desktop (1024 pixel width and above) */
+/* Styles for individual chirps/tweets */
 
-@media (min-width: 1024px) {
-  /* .content {
-    flex-direction: row;
-  } */
-  main, .content > footer {
-    margin-right: 5%;
-    width: 60%;
-    float: right;
-    margin-top: 5vh;
-  }
-  
-}

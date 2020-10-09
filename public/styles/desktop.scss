@@ -1,0 +1,32 @@
+/* Responsive style changes for desktop (1024 pixel width and above) */
+  
+@use './constants.scss';
+
+
+
+@media (min-width: 1024px) {
+  nav.top-bar {
+    background-color: #4056A1;
+    color: white;
+  }
+
+  /* CSS code for the header (the part containing the profile pic) */
+  .content > header {
+    margin-left: 3%;
+    margin-right: 3%;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+    margin-top: 5vh;
+    max-height: 450px;
+    width: 29%;
+    position: fixed;
+    height: 100%;
+    float: left;
+  }
+
+  main, .content > footer {
+    margin-right: 5%;
+    width: 60%;
+    float: right;
+    margin-top: 5vh;
+  }
+}
