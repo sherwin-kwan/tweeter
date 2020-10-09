@@ -114,6 +114,7 @@ const createChirpElement = (chirpContent) => {
        <span class="emoji" title="re-chirp">🔁</span>
        <span class="emoji" title="favourite">💖</span>
        <span class="emoji" title="reply">🙋</span>
+       <span class="emoji" title="flag">🚩</span>
      </figure>
    </footer>
        `);
