@@ -9,10 +9,10 @@ Chirper (Tweeter) is a one-page application which mimics Twitter. Users may subm
 
 ## Screenshots
 
-![Mobile Homepage](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/mobile.png)
-![Desktop Homepage](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/img1.png)
-![Errors](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/toolong.png)
-![Reading Chirps](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/chirps.png)
+!["Mobile Homepage"](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/mobile.png)
+!["Desktop Homepage"](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/img1.png)
+!["Reading Chirps"](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/chirps.png)
+!["Errors"](https://github.com/sherwin-kwan/tweeter/blob/master/server/img/toolong.png)
 
 ## Running The App
 
