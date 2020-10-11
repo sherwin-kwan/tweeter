@@ -145,14 +145,14 @@ label {
   justify-content: space-between;
   align-items: center;
   font-family: $fancyText;
+}
 
-  p {
-    /* Error messages */
-    font-family: $regularText;
-    margin: 0 2em;
-    color: red;
-    font-weight: 300;
-  }
+p.error {
+  /* Error messages */
+  font-family: $regularText;
+  margin: 0 2em;
+  color: red;
+  font-weight: 300;
 }
 
 textarea {

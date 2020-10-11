@@ -53,10 +53,8 @@ $(function() {
   $chirpForm.on('submit', function (event) {
     // Pass two arguments to form_submit function: the event, and the jQuery wrapper for the new chirp form
     try { // In case validation errors happen
-      console.log('Attempting to submit form');
       form_submit(event, $(this));
     } catch (err) {
-      console.log('Error');
       $(this).find('.submitDiv p').text(err.message);
     }
   });

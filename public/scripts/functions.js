@@ -53,17 +53,16 @@ const escapeChars = function (str) {
 const processTime = (date) => {
   const now = new Date(); // creates a date object for "right now"
   if (date > now) {
-    // The chirp was posted in the future by someone messing with the database
-    console.log(`One or more chirps is timestamped in the future`);
+    // The chirp is timestamped in the future
     return 'Posted by a time traveller from the future';
   } else if (now - date < 86400000) {
     // The chirp was posted less than 24 hours ago
     // First check if it was posted more than 1 hour ago
     if (now - date > 3600000) {
       return `${Math.floor((now - date) / 3600000)} hours ago`;
-    } else if (now - date > 60000) {
+    } else if (now - date > 60000) { // Minutes
       return `${Math.floor((now - date) / 60000)} minutes ago`;
-    } else if (now - date > 1000) {
+    } else if (now - date > 1000) { // Seconds
       return `${Math.floor((now - date) / 1000)} seconds ago`;
     } else {
       return 'Just now';
@@ -120,17 +119,24 @@ const createChirpElement = (chirpContent) => {
        `);
 };
 
-// Loads the chirps asynchronously from database and renders them onto the page
-const load_chirps = () => {
+// Loads the chirps asynchronously from database and renders them onto the page. If onlyOne is set to true, only the most recent chirp
+// is loaded. If false or missing, all chirps are loaded.
+const load_chirps = (onlyOne) => {
+  const $listOfChirps = $('#listOfChirps');
   $.ajax('/tweets/', { method: 'GET' })
     .then((arrOfChirps) => {
-      arrOfChirps.forEach((chirp) => {
-        // Note: Prepend used to ensure newest posts appear at the top
-        $('#listOfChirps').prepend(createChirpElement(chirp));
-      });
+      if (onlyOne) {
+        $listOfChirps.prepend(createChirpElement(arrOfChirps[arrOfChirps.length - 1]));
+      } else {
+        arrOfChirps.forEach((chirp) => {
+          // Note: Prepend used to ensure newest posts appear at the top
+          $listOfChirps.prepend(createChirpElement(chirp));
+        });
+      }
     })
     .fail((xhr, status, err) => {
-      console.log(status, err);
+      $listOfChirps.find('p').text(`${status}, ${err}: Unfortunately, chirps could not be loaded. Please try again later or report a bug using
+      the link in the footer.`);
     });
 };
 
@@ -158,9 +164,10 @@ const form_submit = (event, $form) => {
       $form.find('textarea').val('');
       $form.find('.counter').val(maxChirpLength);
       $form.find('p').text('');
-      load_chirps();
+      load_chirps(true);
     })
     .fail((xhr, status, err) => {
-      console.log(status, err);
+      throw new Error(`Unforutnately, your chirp could not be saved to the database. Please try again later or report a bug using
+      the link in the footer`);
     })
 };

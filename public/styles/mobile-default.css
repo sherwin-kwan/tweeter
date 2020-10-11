@@ -126,7 +126,8 @@ label {
   align-items: center;
   font-family: "Bungee", cursive, sans-serif;
 }
-.submitDiv p {
+
+p.error {
   /* Error messages */
   font-family: "Source Sans Pro", sans-serif;
   margin: 0 2em;
