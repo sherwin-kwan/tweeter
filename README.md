@@ -7,6 +7,13 @@ Chirper (Tweeter) is a one-page application which mimics Twitter. Users may subm
 * Back-end: Node, Express
 * Front-end: jQuery, Sass
 
+## Version History
+
+Version | Date | Comments
+---|---|---
+1.0 | 2020-10-08 | Original submission
+1.1 | 2020-10-11 | Bug fixes and added hover effects
+
 ## Screenshots
 
 Mobile Homepage
