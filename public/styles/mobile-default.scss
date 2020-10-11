@@ -199,7 +199,7 @@ article {
   }
 
   address {
-    display: none;
+    visibility: hidden;
   }
 
   p {
@@ -231,7 +231,7 @@ article {
     font-weight: 600;
 
     address {
-      display: inline;
+      visibility: visible;
       color: $brandColour1;
     }
   }

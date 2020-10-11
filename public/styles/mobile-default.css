@@ -175,7 +175,7 @@ article img, article address {
   margin: 10px;
 }
 article address {
-  display: none;
+  visibility: hidden;
 }
 article p {
   padding: 10px;
@@ -200,7 +200,7 @@ article:hover {
   font-weight: 600;
 }
 article:hover address {
-  display: inline;
+  visibility: visible;
   color: #4056A1;
 }
 
