@@ -156,6 +156,7 @@ article {
   border: 2px solid black;
   width: 100%;
   /* Space out the figures for re-chirping, etc. */
+  /* Hover effects: handle becomes visible, text boldens, and shadow appears */
 }
 article > * {
   margin: 10px 20px;
@@ -172,6 +173,9 @@ article .name {
 }
 article img, article address {
   margin: 10px;
+}
+article address {
+  display: none;
 }
 article p {
   padding: 10px;
@@ -190,6 +194,14 @@ article time {
 }
 article .emoji {
   margin: 10px;
+}
+article:hover {
+  box-shadow: 5px 5px #4056A1;
+  font-weight: 600;
+}
+article:hover address {
+  display: inline;
+  color: #4056A1;
 }
 
 /*# sourceMappingURL=mobile-default.css.map */

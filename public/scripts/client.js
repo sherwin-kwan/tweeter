@@ -58,6 +58,6 @@ $(function() {
       $(this).find('.submitDiv p').text(err.message);
     }
   });
-
+  
 });
 

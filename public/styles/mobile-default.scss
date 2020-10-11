@@ -198,6 +198,10 @@ article {
     margin: 10px;
   }
 
+  address {
+    display: none;
+  }
+
   p {
     padding: 10px;
     margin: 20px;
@@ -219,6 +223,17 @@ article {
   /* Space out the figures for re-chirping, etc. */
   .emoji {
     margin: 10px;
+  }
+
+  /* Hover effects: handle becomes visible, text boldens, and shadow appears */
+  &:hover {
+    box-shadow: 5px 5px $brandColour1;
+    font-weight: 600;
+
+    address {
+      display: inline;
+      color: $brandColour1;
+    }
   }
 }
 
